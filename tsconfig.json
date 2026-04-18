@@ -12,5 +12,5 @@
     "noEmit": true,
     "types": ["node", "vitest/globals"]
   },
-  "include": ["src", "prisma", "prisma.config.ts", "vitest.config.ts", "tsup.config.ts", "eslint.config.mjs"]
+  "include": ["src", "test", "prisma", "prisma.config.ts", "vitest.config.ts", "vitest.e2e.config.ts", "tsup.config.ts", "eslint.config.mjs"]
 }

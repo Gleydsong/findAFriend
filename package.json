@@ -12,8 +12,10 @@
     "test": "vitest run --passWithNoTests",
     "test:ui": "vitest --ui",
     "test:watch": "vitest",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
+    "prisma:push": "prisma db push",
     "db:up": "docker compose up -d",
     "db:down": "docker compose down"
   },
