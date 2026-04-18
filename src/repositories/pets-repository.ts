@@ -1,5 +1,16 @@
 import { Pet, PetAge, PetSize, EnergyLevel, EnvironmentSize, IndependenceLevel } from '@prisma/client'
 
+export interface PetDetails extends Pet {
+  org: {
+    id: string
+    name: string
+    address: string
+    city: string
+    state: string
+    whatsapp: string
+  }
+}
+
 export interface CreatePetInput {
   name: string
   about: string
@@ -22,7 +33,7 @@ export interface SearchPetsFilters {
 }
 
 export interface PetsRepository {
-  findById(id: string): Promise<Pet | null>
+  findById(id: string): Promise<PetDetails | null>
   findManyByCity(city: string, filters?: SearchPetsFilters): Promise<Pet[]>
   create(data: CreatePetInput): Promise<Pet>
 }

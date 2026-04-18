@@ -3,7 +3,7 @@ import { randomUUID } from 'node:crypto'
 import { Pet } from '@prisma/client'
 
 import { OrgsRepository } from '../orgs-repository'
-import { CreatePetInput, PetsRepository, SearchPetsFilters } from '../pets-repository'
+import { CreatePetInput, PetDetails, PetsRepository, SearchPetsFilters } from '../pets-repository'
 
 export class InMemoryPetsRepository implements PetsRepository {
   public items: Pet[] = []
@@ -11,7 +11,31 @@ export class InMemoryPetsRepository implements PetsRepository {
   constructor(private readonly orgsRepository: OrgsRepository) {}
 
   async findById(id: string) {
-    return this.items.find((pet) => pet.id === id) ?? null
+    const pet = this.items.find((item) => item.id === id)
+
+    if (!pet) {
+      return null
+    }
+
+    const org = await this.orgsRepository.findById(pet.orgId)
+
+    if (!org) {
+      return null
+    }
+
+    const petDetails: PetDetails = {
+      ...pet,
+      org: {
+        id: org.id,
+        name: org.name,
+        address: org.address,
+        city: org.city,
+        state: org.state,
+        whatsapp: org.whatsapp,
+      },
+    }
+
+    return petDetails
   }
 
   async findManyByCity(city: string, filters: SearchPetsFilters = {}) {

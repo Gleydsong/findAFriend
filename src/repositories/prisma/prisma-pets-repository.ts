@@ -7,6 +7,18 @@ export class PrismaPetsRepository implements PetsRepository {
   async findById(id: string) {
     return prisma.pet.findUnique({
       where: { id },
+      include: {
+        org: {
+          select: {
+            id: true,
+            name: true,
+            address: true,
+            city: true,
+            state: true,
+            whatsapp: true,
+          },
+        },
+      },
     })
   }
 
