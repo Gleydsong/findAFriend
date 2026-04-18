@@ -50,6 +50,26 @@ npm run prisma:push
 npm run prisma:generate
 ```
 
+## Migrações
+
+Para criar e aplicar migrações em desenvolvimento, use:
+
+```bash
+npm run prisma:migrate -- --name init
+```
+
+Esse script sobe o PostgreSQL antes de executar o Prisma. Se preferir rodar `npx prisma migrate dev` diretamente, suba o banco antes com `npm run db:up`.
+
+O projeto ja possui uma migration inicial versionada em `prisma/migrations`.
+
+Se voce ja executou `prisma db push` antes de criar a primeira migracao, o Prisma pode acusar **drift**. Nesse caso, resete o banco de desenvolvimento e rode a migracao novamente:
+
+```bash
+docker compose up -d
+npx prisma migrate reset
+npm run prisma:migrate -- --name init
+```
+
 ## Executando
 
 ```bash

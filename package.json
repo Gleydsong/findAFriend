@@ -15,7 +15,7 @@
     "test:e2e": "vitest run --config vitest.e2e.config.ts",
     "test:coverage": "vitest run --coverage",
     "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
+    "prisma:migrate": "docker compose up -d && prisma migrate dev",
     "prisma:push": "prisma db push",
     "db:up": "docker compose up -d",
     "db:down": "docker compose down"
