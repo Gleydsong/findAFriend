@@ -6,6 +6,8 @@ API REST para sistema de adoção de animais, seguindo princípios SOLID com tes
 
 **Stack:** TypeScript, Fastify, Prisma ORM, PostgreSQL, Vitest, Docker Compose
 
+**Status:** implementado. Ajuste adicional feito no carregamento de ambiente para que Prisma e aplicação usem `.env` quando existir, com fallback para `.env.example` no setup local.
+
 ## Arquitetura
 
 Padrão **Repository + Use Case** para respeitar SOLID:

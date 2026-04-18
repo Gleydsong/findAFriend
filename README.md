@@ -30,6 +30,8 @@ npm install
 cp .env.example .env
 ```
 
+Se o arquivo `.env` nao existir, os comandos locais usam `.env.example` como fallback para facilitar o setup.
+
 3. Suba o PostgreSQL:
 
 ```bash
