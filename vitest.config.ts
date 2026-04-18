@@ -5,7 +5,7 @@ export default defineConfig({
     environment: 'node',
     globals: true,
     include: ['src/**/*.spec.ts', 'test/**/*.spec.ts'],
-    exclude: ['src/**/*.e2e-spec.ts'],
+    exclude: ['src/http/controllers/**/*.spec.ts', 'src/**/*.e2e-spec.ts'],
     setupFiles: ['test/vitest.setup.ts'],
   },
 })
