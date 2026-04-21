@@ -1,12 +1,51 @@
+# Dependencies
 node_modules/
-dist/
-coverage/
 
+# Build / output
+dist/
+dist-ssr/
+build/
+out/
+*.tsbuildinfo
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Env (nunca commitar segredos)
 .env
 .env.local
 .env.*.local
+.env.development
+.env.production
 
+# Logs
 *.log
-*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Caches
+.cache/
+.vite/
+.turbo/
+.eslintcache
+*.cache
+
+# OS
 .DS_Store
-.vscode/
+Thumbs.db
+
+# IDE / editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Cursor (metadados locais do projeto)
+.cursor/
+
+# Chaves / certificados locais
+*.pem
+*.key
