@@ -18,12 +18,15 @@
     "prisma:migrate": "docker compose up -d && prisma migrate dev",
     "prisma:push": "prisma db push",
     "db:up": "docker compose up -d",
-    "db:down": "docker compose down"
+    "db:down": "docker compose down",
+    "web:dev": "npm run dev --prefix web",
+    "web:build": "npm run build --prefix web"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fastify/cors": "^11.2.0",
     "@fastify/jwt": "^10.0.0",
     "@prisma/adapter-pg": "^7.7.0",
     "@prisma/client": "^7.7.0",

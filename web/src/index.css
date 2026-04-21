@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+
+/* Tokens alinhados ao Figma Find a Friend (Login / Cadastro) */
+@theme {
+  --font-sans: 'Nunito', system-ui, sans-serif;
+  --color-ink: #0d3b66;
+  --color-muted: #5a6b7d;
+  --color-surface: #ffffff;
+  --color-field: #f5f8fa;
+  --color-border: #d3e2e5;
+  --color-coral: #f15156;
+  --color-navy: #0d3b66;
+}
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply m-0 min-h-dvh bg-[var(--color-surface)] font-sans text-[var(--color-ink)];
+  }
+}

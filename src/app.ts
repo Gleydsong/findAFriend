@@ -1,3 +1,4 @@
+import cors from '@fastify/cors'
 import fastifyJwt from '@fastify/jwt'
 import fastify from 'fastify'
 
@@ -8,6 +9,8 @@ import { petRoutes } from './http/controllers/pets/routes'
 export const app = fastify({
   logger: env.NODE_ENV !== 'test',
 })
+
+void app.register(cors, { origin: true })
 
 void app.register(fastifyJwt, {
   secret: env.JWT_SECRET,
